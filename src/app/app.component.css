@@ -7,3 +7,10 @@ button{
     border: transparent;
     background-color: transparent;
 }
+.home{
+    color: black;
+    margin-right: 5px;
+}
+.header{
+    width: 100vw;
+}

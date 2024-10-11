@@ -1,11 +1,16 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary ">
 
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Bienvenido</a>
-
+  <div class="d-flex flex-wrap align-items-center justify-content-evenly header">
+    <div>
+      <a href="Principal" routerLink="'Principal'" class="navbar-brand" ><i class="home bi bi-house-door-fill"></i>Principal</a>
+    </div>
+    <div>
+      <a class="navbar-brand" href="#">Bienvenido</a>
     </div>
     <div class="">
       <button><i class="bi bi-heart-fill" (click)="enviarFavoritos()"></i></button>
     </div>
+    </div>
+
 </nav>
 <router-outlet></router-outlet> 

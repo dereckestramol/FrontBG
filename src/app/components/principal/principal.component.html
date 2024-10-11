@@ -1,22 +1,46 @@
 
-<div class="container d-flex mt-5">
-    <input type="text" class="form-control" keypress [(ngModel)]="buscar" #cateogira placeholder="Busca por categoria">
-<button class="btn btn-outline-primary ms-3" (click)="Categorias(cateogira.value)">Buscar</button>
+@if (productos.length==0) {
+    <div class="mt-5 d-flex flex-column justify-content-center message">
+      <div class="alert alert-primary d-flex justify-content-center" role="alert">
+        No tienes productos favoritos agregados!
+      </div>
+    </div>
+  }
+  @else {
+
+  
+<div class="container d-flex justify-content-center mt-5">
+    <label for="selectCategoria">Seleccione una Categoria</label>
+        <select id="selectCategoria" class="form-select" [(ngModel)]="buscar" (ngModelChange)="filtarCategoria()">
+            <option value="null" disabled="true" [selected]="true">Seleccione una categoria a buscar</option>
+            <option value="0">TODAS</option>
+            @for (categoria of categoriaList; track $index) {
+                <option [value]="categoria.idCategoria">{{categoria.descripCategoria}}</option>
+            }
+        </select>
 </div>
 <div class="container d-flex  flex-wrap justify-content-center mt-3 ">
     @for (item of productos; track $index) {
-        <div class="card ms-4 mt-2" style="width: 18rem;">
+        <div class="card ms-4 mt-2 d-flex " style="width: 18rem;">
             <div class="card-body">
                 <img class="ms-5" src="data:image/png;base64, {{item.fotoProducto}}" alt="" width="150px">
               <h5 class="card-title mt-2" >{{item.nameProducto}}</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">{{item.precio}}</h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary">{{item.precio | currency}}</h6>
               @if (item.precio>this.promedio) {
                     <p class="text-danger">PRECIO ELEVADO</p>     
               }
               <h6 class="card-subtitle mb-2 text-body-secondary">{{item.descripCategoria}}</h6>
               <p class="card-text" >{{item.descripProducto}}</p>
-              <a href="#" class="card-link"><i class="bi bi-heart-fill"></i></a>
+            </div>
+              <div class="heart d-flex flex-row justify-content-end align-items-end"  >
+                @if (obtenerFavorito(item.idProducto).length>0) {
+                    <button (click)="eliminarFavorito(item)"><i class="bi bi-heart-fill"></i></button>
+                }
+                @else {
+                    <button (click)="agregarFavorito(item)"><i class="bi bi-heart"></i></button>
+                }
             </div>
           </div>
     }
 </div>
+}

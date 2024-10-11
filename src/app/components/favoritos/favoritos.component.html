@@ -1,14 +1,28 @@
-<div class="container">
-    @for (item of productos; track $index) {
-        <div class="card ms-4 mt-2" style="width: 18rem;">
-            <div class="card-body">
-                <img src="data:image/png;base64, {{item.fotoProducto}}" alt="" width="150px">
-                
-              <h5 class="card-title">{{item.nameProducto}}</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">{{item.precio}}</h6>
-              <p class="card-text">{{item.descripProducto}}</p>
-              <a href="#" class="card-link"><i class="bi bi-heart-fill"></i></a>
-            </div>
+@if (productosFavoritos.length==0) {
+  <div class="mt-5 d-flex flex-column justify-content-center message">
+    <div class="alert alert-primary d-flex justify-content-center" role="alert">
+      No tienes productos favoritos agregados!
+    </div>
+  </div>
+}
+@else {
+  
+
+<div class="container d-flex flex-wrap justify-content-center mt-3 ">
+  @for (item of productosFavoritos; track $index) {
+      <div class="card ms-4  d-flex flex-row justify-content-evenly text-center" >
+          <div class="">
+              <img class="ms-5 mt-2" src="data:image/png;base64, {{item.imagenProducto}}" alt="" >
           </div>
-    }
+          <div d-flex >
+            <h5 class="card-title mt-2" >{{item.nameProducto}}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{item.precioProducto}}</h6>
+            <p class="card-text" >{{item.descripProducto}}</p>
+              <div class="heart d-flex flex-row justify-content-center align-items-end"  >
+               <button (click)="eliminarFavorito(item)"><i class="bi bi-heart-fill"></i></button>              
+              </div>
+          </div>
+         </div>        
+  }
 </div>
+}

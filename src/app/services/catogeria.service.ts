@@ -9,7 +9,7 @@ export class CatogeriaService {
   private _http=inject(HttpClient);
   private categoriaService=environment.baseurl+environment.categoriaURL;
   constructor() { }
-  getProducto(){
+  getCategoria(){
     return this._http.get(this.categoriaService);
   }
 }

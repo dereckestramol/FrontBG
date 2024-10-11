@@ -1,27 +1,22 @@
-# FrontendBG
+## Como iniciar el proyecto
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
 
-## Development server
+Para iniciar el proyecto una vez descargado desde el git se debe ejecutar un "npm install" en la terminal, esto instalara todos los modulos para que funcione la aplicacion.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Problemas de CORs
 
-## Code scaffolding
+Si el proyecto marca algun problema con la conexion al backend una de las razones puede ser los CORs para solucionar este incoveniente se debe ir al program del backend
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+<img src="../FrontBG/public/images/CORs.jpeg"/>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+En la linea 14 debemos modificar el puerto del localhost por el que este levantado el front 
 
-## Running unit tests
+## No se encuentra la url del backend
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+En caso de no encontrarse la Url del backend debemos abrir la carpeta environments que se encuentra dentro de la carpeta src, en environments.development procederemos a cambiar la url del backed
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<img src="../FrontBG/public/images/environment.jpeg"/>
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+en la linea 3 podemos modificar la url a la conexion al backend 
