@@ -1,0 +1,14 @@
+<div class="container">
+    @for (item of productos; track $index) {
+        <div class="card ms-4 mt-2" style="width: 18rem;">
+            <div class="card-body">
+                <img src="data:image/png;base64, {{item.fotoProducto}}" alt="" width="150px">
+                
+              <h5 class="card-title">{{item.nameProducto}}</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">{{item.precio}}</h6>
+              <p class="card-text">{{item.descripProducto}}</p>
+              <a href="#" class="card-link"><i class="bi bi-heart-fill"></i></a>
+            </div>
+          </div>
+    }
+</div>

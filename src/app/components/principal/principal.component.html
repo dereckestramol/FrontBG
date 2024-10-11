@@ -1,0 +1,22 @@
+
+<div class="container d-flex mt-5">
+    <input type="text" class="form-control" keypress [(ngModel)]="buscar" #cateogira placeholder="Busca por categoria">
+<button class="btn btn-outline-primary ms-3" (click)="Categorias(cateogira.value)">Buscar</button>
+</div>
+<div class="container d-flex  flex-wrap justify-content-center mt-3 ">
+    @for (item of productos; track $index) {
+        <div class="card ms-4 mt-2" style="width: 18rem;">
+            <div class="card-body">
+                <img class="ms-5" src="data:image/png;base64, {{item.fotoProducto}}" alt="" width="150px">
+              <h5 class="card-title mt-2" >{{item.nameProducto}}</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">{{item.precio}}</h6>
+              @if (item.precio>this.promedio) {
+                    <p class="text-danger">PRECIO ELEVADO</p>     
+              }
+              <h6 class="card-subtitle mb-2 text-body-secondary">{{item.descripCategoria}}</h6>
+              <p class="card-text" >{{item.descripProducto}}</p>
+              <a href="#" class="card-link"><i class="bi bi-heart-fill"></i></a>
+            </div>
+          </div>
+    }
+</div>
